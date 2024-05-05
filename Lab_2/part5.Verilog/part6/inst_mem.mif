@@ -1,0 +1,28 @@
+WIDTH = 16;
+DEPTH = 256;
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+
+CONTENT
+BEGIN
+0		: 3610;		% mvt  r3, #0x1000 %
+1		: 3830;		% mvt  r4, #0x3000 %
+2		: 8004;		% ld   r0, [r4] %
+3		: 200d;		% b    11 %
+4		: 6400;		% sub  r2, r0 %
+5		: 2404;		% bne  a %
+6		: 5a00;		% add  r5, #0x0000 %
+7		: 2208;		% beq  10 %
+8		: 7a01;		% sub  r5, #0x0001 %
+9		: 21f8;		% b    2 %
+a		: 0a00;		% mv   r5, r0 %
+b		: 0400;		% mv   r2, r0 %
+c		: 5a00;		% add  r5, #0x0000 %
+d		: 2202;		% beq  10 %
+e		: 7a01;		% sub  r5, #0x0001 %
+f		: 21f2;		% b    2 %
+10		: 5c01;		% add  r6, #0x0001 %
+11		: ac03;		% st   r6, [r3] %
+12		: 0a00;		% mv   r5, r0 %
+13		: 21ee;		% b    2 %
+END;
